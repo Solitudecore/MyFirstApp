@@ -59,7 +59,7 @@ export default function App() {
     setBoard(newBoard);
     setIsXNext(!isXNext);
   };
- 
+  
   const resetGame = () => {
     setBoard([
       [0, 0, 0],
@@ -69,13 +69,11 @@ export default function App() {
     setIsXNext(true);
   };
 
-const getStatusMessage = () => {
-  if (winner === "Draw") return "It's a draw!";
-  if (winner) return `Winner: ${winner} `;
-  return `Turn: ${isXNext ? "X" : "O"}`;
-};
-
-
+  const getStatusMessage = () => {
+    if (winner === "Draw") return "It's a draw!";
+    if (winner) return `Winner: ${winner} `;
+    return `Turn: ${isXNext ? "X" : "O"}`;
+  };
 
   return (
     <View style={styles.container}>
@@ -84,7 +82,8 @@ const getStatusMessage = () => {
       <Text
         style={[
           styles.statusText,
-      winner ? (winner === "Draw" ? styles.drawText : styles.winnerText) : null,  ]}
+          winner ? (winner === "Draw" ? styles.drawText : styles.winnerText) : null,
+        ]}
       >
         {getStatusMessage()}
       </Text>
@@ -104,7 +103,6 @@ const getStatusMessage = () => {
           </View>
         ))}
       </View>
-
 
       <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
         <Text style={styles.resetButtonText}>Play again</Text>
@@ -126,7 +124,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     color: "#212529",
   },
- 
   statusText: {
     fontSize: 22,
     fontWeight: "600",
@@ -164,20 +161,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  
   resetButton: {
     marginTop: 30,
-    paddingHorizontal: 24,
-    paddingVertical: 12,
     backgroundColor: "#007AFF",
-    borderRadius: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
   },
   resetButtonText: {
     color: "#fff",
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: "bold",
   },
 });
-
-
